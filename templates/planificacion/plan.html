@@ -1,0 +1,22 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block titulo%} Arquitectura {% endblock titulo%}
+{% block contenido %}
+<!--<section>-->
+<div class="container">
+    <!--<div class="main-container fl-wrap">-->
+    <div style="width: 100%;">
+        <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
+            {% for plan in planifi %}
+            <iframe width="1500" height="720"
+                    src="{{plan.url_planificacion}}"
+                    frameborder="0" allowFullScreen="true"></iframe>
+            {% endfor%}
+        </div>
+    </div>
+</div>
+<!--</div>-->
+<!--</section>-->
+{% endblock contenido %}
+
+<iframe src=""></iframe>

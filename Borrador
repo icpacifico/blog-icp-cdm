@@ -1,0 +1,36 @@
+# FONDO BLANCO PARA EL TITULO DE LAS NOTICIAS
+<div class="slider_widget_title" style="
+    font-family: 'Old English Text MT';
+    font-size: 20px;
+    -webkit-text-stroke: 0.1px black;
+    font-weight: bold;
+    color: black;
+    background-color: white; /* Agregar fondo blanco */
+    padding: 10px; /* Opcional: agregar espacio interno para separar el texto del borde */
+">The New Costanera Times</div>
+
+###
+<div class="slider_widget_title" style="font-family:'Old English Text MT';
+                                font-size:20px;
+                                -webkit-text-stroke: 0.1px black;
+                                font-weight: bold;
+                                color: black;">The New Costanera Times
+                                </div>
+
+
+
+<div style="border: 1px solid rgba(255, 255, 255, 0.1);
+                                                        background: rgba(255, 255, 255, 0.05);
+                                                        padding: 51px 7px;
+                                                        height: 50px;
+                                                        line-height: 50px;
+                                                        position: relative;
+                                                        z-index: 1;
+                                                        color: #fff;
+                                                        width: 70%;
+                                                        outline: none;
+                                                        float: left;
+                                                        box-sizing: border-box;
+                                                        font-family: 'Poppins', sans-serif;">
+                                                {{form.texto}}
+                                            </div>

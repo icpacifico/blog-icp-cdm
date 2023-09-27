@@ -1,0 +1,59 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block titulo %}<title>Constructora del Mar</title>{% endblock titulo %}
+{% block contenido %}
+<!--section   -->
+{% for equipo in equipos %}
+<div class="breadcrumbs-header fl-wrap">
+    <div class="container">
+        <div class="breadcrumbs-header_url">
+            <a href="#">Empresas</a>
+            <span>{{equipo.nombre}}</span>
+        </div>
+        <div class="scroll-down-wrap">
+            <div class="mousey">
+                <div class="scroller"></div>
+            </div>
+            <span>Desliza para descubrir</span>
+        </div>
+    </div>
+    <div class="pwh_bg"></div>
+</div>
+<!-- section end  -->
+<!--section   -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="section-title sect_dec">
+                    <h2>{{equipo.nombre}}</h2>
+                    <h4>Quienes somos</h4>
+                </div>
+                <div class="about-wrap">
+                    <p>{{equipo.descripcion}}</p>
+                    <p> Parrafo segunda </p>
+                    <ul>
+                        <li></li>
+                        <li><a href="{% url 'Presen_calidad' %}" > <span>Conoce nuestro equipo!</span>
+                            <i class="fas fa-caret-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <div class="about-img fl-wrap">
+                    <img src="{{ equipo.fotografia_equipo.url}}" class="respimg" alt="">
+                    <div class="about-img-hotifer color-bg">
+                        <p>FRASEEEE</p>
+                        <h4>Nombre</h4>
+                        <h5>Cargo y Empresa</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec-dec"></div>
+</section>
+<!--about end   -->
+{% endfor %}
+{% endblock contenido %}

@@ -1,0 +1,395 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block titulo %}<title>Home</title>{% endblock titulo %}
+{% block contenido %}
+<!-- hero-slider-wrap     -->
+<div class="hero-slider-wrap fl-wrap">
+    <!-- hero-slider-container     -->
+    <div class="hero-slider-container multi-slider fl-wrap full-height">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- swiper-slide -->
+                {% for dato in datos %}
+                <div class="swiper-slide">
+                    <div class="bg-wrap">
+                        <div class="bg" data-bg="{{ dato.foto_banner.url}}" data-swiper-parallax="40%"></div>
+                    </div>
+                    <div class="hero-item fl-wrap">
+                        <div class="container">
+                            <div class="clearfix"></div>
+                            <h2><a href="{% url 'Post_Act' dato.actividad_banner_id %}">{{dato.titulo_banner}}</a></h2>
+                            <h4>{{dato.resegna_banner}}</h4>
+                            <div class="clearfix"></div>
+                            <span class="post-date"><i class="far fa-clock"></i>{{dato.fecha_banner}}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- swiper-slide  end   -->
+            </div>
+        </div>
+        <div class="fs-slider_btn color-bg fs-slider-button-prev"><i class="fas fa-caret-left"></i></div>
+        <div class="fs-slider_btn color-bg fs-slider-button-next"><i class="fas fa-caret-right"></i></div>
+    </div>
+    <!-- hero-slider-container  end   -->
+    <!-- hero-slider_controls-wrap   -->
+    <div class="hero-slider_controls-wrap">
+        <div class="container">
+            <div class="hero-slider_controls-list multi-slider_control">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- swiper-slide  -->
+                        {% for dato in datos %}
+                        <div class="swiper-slide">
+                            <div class="hsc-list_item fl-wrap">
+                                <div class="hsc-list_item-media">
+                                    <div class="bg-wrap">
+                                        <div class="bg" data-bg="{{ dato.foto_banner.url}}"></div>
+                                    </div>
+                                </div>
+                                <div class="hsc-list_item-content fl-wrap">
+                                    <h4>{{dato.titulo_banner}}</h4>
+                                    <span class="post-date"><i class="far fa-clock"></i>{{dato.fecha_banner}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- swiper-slide end   -->
+                    </div>
+                </div>
+            </div>
+            <div class="multi-pag"></div>
+        </div>
+    </div>
+    <!-- hero-slider_controls-wrap end  -->
+    <div class="slider-progress-bar act-slider">
+                            <span>
+                                <svg class="circ" width="30" height="30">
+                                    <circle class="circ2" cx="15" cy="15" r="13" stroke="rgba(255,255,255,0.4)"
+                                            stroke-width="1" fill="none"/>
+                                    <circle class="circ1" cx="15" cy="15" r="13" stroke="#e93314" stroke-width="2"
+                                            fill="none"/>
+                                </svg>
+                            </span>
+    </div>
+</div>
+<!-- hero-slider-wrap  end   -->
+<!-- section   -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="main-container fl-wrap fix-container-init">
+                    <div class="clearfix"></div>
+                    <div class="section-title sect_dec">
+                        <h2>Actividades recientes en la Empresa</h2>
+                        <h4>Encuentrate!!</h4>
+                    </div>
+                    <div class="grid-post-wrap">
+                        <div class="more-post-wrap  fl-wrap">
+                            <div class="list-post-wrap list-post-wrap_column fl-wrap">
+                                <div class="row">
+                                    {% for actividad in actividades_recent %}
+                                    <div class="col-md-6">
+                                        <!--list-post-->
+                                        <div class="list-post fl-wrap">
+                                            <div class="list-post-media">
+                                                <a href="{% url 'Actividad' actividad.id%}">
+                                                    <div class="bg-wrap">
+                                                        <div class="bg"
+                                                             data-bg="{{actividad.portada_actividad.url}}"></div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="list-post-content">
+                                                <h3><a href="{% url 'Actividad' actividad.id%}">{{actividad.nombre_actividad}}</a>
+                                                </h3>
+                                                <span class="post-date"><i class="far fa-clock"></i>{{actividad.fecha_actividad}}</span>
+                                            </div>
+                                        </div>
+                                        <!--list-post end-->
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <!--grid-post-item-->
+                        <div class="single-grid-slider-wrap fl-wrap">
+                            <div class="section-title sect_dec">
+                                <h2>Operativos de la Empresa</h2>
+                                <h4>Operativos de Prevención y Control</h4>
+                            </div>
+                            <div class="single-grid-slider">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <!-- swiper-slide-->
+                                        {% for informativo in informativos %}
+                                        <div class="swiper-slide">
+                                            <div class="grid-post-item  bold_gpi  fl-wrap">
+                                                <div class="grid-post-media gpm_sing">
+                                                    <div class="bg"
+                                                         data-bg="{{informativo.portada_informativo.url}}"></div>
+                                                    <div class="author-link"><a href="author-single.html"><img
+                                                            src="{% static 'images/avatar/1.jpg' %}" alt="">
+                                                        <span>{{informativo.nombre_responsable}}</span></a></div>
+                                                    <div class="grid-post-media_title">
+                                                        <a class="post-category-marker">{{informativo.area_informativo}}</a>
+                                                        <h4><a>{{informativo.nombre_informativo}}</a>
+                                                        </h4>
+                                                        <span class="video-date"><i
+                                                                class="far fa-clock"></i>{{informativo.fecha_informativo}}</span>
+                                                        <ul class="post-opt">
+                                                            <li><i class="far fa-comments-alt"></i> 25</li>
+                                                            <li><i class="fal fa-eye"></i> 164</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        <!-- swiper-slide end-->
+                                    </div>
+                                    <div class="sgs-pagination sgs_ver "></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--grid-post-item end-->
+                        <div class="more-post-wrap  fl-wrap">
+                            <div class="list-post-wrap list-post-wrap_column fl-wrap">
+                                <div class="row">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- sidebar   -->
+                <div class="sidebar-content fl-wrap fix-bar">
+                    <!-- box-widget -->
+                    <div class="box-widget fl-wrap">
+                        <div class="box-widget-content">
+                            <!-- content-tabs-wrap -->
+                            <div class="content-tabs-wrap tabs-act tabs-widget fl-wrap">
+                                <div class="content-tabs fl-wrap">
+                                    <ul class="tabs-menu fl-wrap no-list-style">
+                                        <li class="current"><a href="#tab-popular"> Fechas Importantes </a></li>
+                                        <li><a href="#tab-resent">Próximos temas</a></li>
+                                    </ul>
+                                </div>
+                                <!--tabs -->
+                                <div class="tabs-container">
+                                    <!--tab -->
+                                    <div class="tab">
+                                        <div id="tab-popular" class="tab-content first-tab">
+                                            <div class="post-widget-container fl-wrap">
+                                                <!-- post-widget-item -->
+                                                {% for hito in hitos %}
+                                                <div class="post-widget-item fl-wrap">
+                                                    <div class="post-widget-item-media">
+                                                        <a><img
+                                                                src="{{hito.img_hito.url}}"
+                                                                alt=""></a>
+                                                    </div>
+                                                    <div class="post-widget-item-content">
+                                                        <h4><a>{{hito.titulo_hit}}</a></h4>
+                                                        <ul class="pwic_opt">
+                                                            <li><span><i
+                                                                    class="far fa-clock"></i>{{hito.fecha_hito}}</span>
+                                                            </li>
+                                                            <li><span><i
+                                                                    class="fal fa-eye"></i>{{hito.lugar_hito}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                                <!-- post-widget-item end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--tab  end-->
+                                    <!--tab -->
+                                    <div class="tab">
+                                        <div id="tab-resent" class="tab-content">
+                                            <div class="post-widget-container fl-wrap">
+                                                <!-- post-widget-item -->
+                                                {% for hito in hitos_proximos %}
+                                                <div class="post-widget-item fl-wrap">
+                                                    <div class="post-widget-item-media">
+                                                        <a><img
+                                                                src="{{hito.img_hito.url}}"
+                                                                alt=""></a>
+                                                    </div>
+                                                    <div class="post-widget-item-content">
+                                                        <h4><a>{{hito.titulo_hit}}</a></h4>
+                                                        <ul class="pwic_opt">
+                                                            <li><span><i
+                                                                    class="far fa-clock"></i>{{hito.fecha_hito}}</span>
+                                                            </li>
+                                                            <li><span><i
+                                                                    class="fal fa-eye"></i>{{hito.lugar_hito}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                                <!-- post-widget-item end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--tab end-->
+                                </div>
+                                <!--tabs end-->
+                            </div>
+                            <!-- content-tabs-wrap end -->
+                        </div>
+                    </div>
+                    <!-- box-widget  end -->
+                    <!-- box-widget -->
+                    <div class="box-widget fl-wrap">
+                        <div class="box-widget-content">
+                            <div class="single-grid-slider slider_widget">
+                                <div class="slider_widget_title" style="font-family:'Old English Text MT';
+                                font-size:30px;
+                                font-weight: normal;
+                                color: white;">Costanera Times
+                                </div>
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <!-- swiper-slide-->
+                                        {% for noticia in noticias%}
+                                        <div class="swiper-slide">
+                                            <div class="grid-post-item     fl-wrap">
+                                                <div class="grid-post-media gpm_sing">
+                                                    <div class="bg-wrap">
+                                                        <div class="bg" data-bg="{{noticia.img_noticia.url}}"></div>
+                                                        <div class="overlay"></div>
+                                                    </div>
+                                                    <div class="grid-post-media_title">
+                                                        <h4>
+                                                            <a href="{{noticia.url_noticia}}">{{noticia.titulo_Noticia}}</a>
+                                                        </h4>
+                                                        <span class="video-date"><i
+                                                                class="far fa-clock"></i>{{noticia.fecha_noticia}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        <!-- swiper-slide end-->
+                                    </div>
+                                    <div class="sgs-pagination sgs_hor "></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- box-widget  end -->
+                </div>
+                <!-- sidebar  end -->
+            </div>
+        </div>
+        <div class="limit-box fl-wrap"></div>
+    </div>
+</section>
+<!-- section end -->
+<!-- section   -->
+<section class="dark-bg no-bottom-padding">
+    <div class="container">
+        <div class="main-video-wrap fl-wrap">
+            <div class="video-main-cont">
+                <div class="video-section-title fl-wrap">
+                    <h2>Videos de nuestra Empresa</h2>
+                    <a>Ver todos los videos <i class="fas fa-caret-right"></i></a>
+                </div>
+                <a class="video-holder vh-main fl-wrap  image-popup" href="#">
+                    <div class="bg"></div>
+                    <div class="big_prom"><i class="fas fa-play"></i></div>
+                </a>
+                <div class="video-holder-title fl-wrap">
+                    <div class="video-holder-title_item"><a href="#"></a></div>
+                    <span class="video-date"><i class="far fa-clock"></i> <strong></strong></span>
+                </div>
+                <div class="vh-preloader"></div>
+            </div>
+            <!-- video-links-wrap   -->
+            <div class="video-links-wrap">
+                <!-- video-item  -->
+                {% for video in videos %}
+                <div class="video-item video-item_active fl-wrap"
+                     data-video-link="{{video.url_video}}">
+                    <div class="video-item-img fl-wrap">
+                        <img src="{{video.img_video.url}}" class="respimg" alt="">
+                        <div class="play-icon"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="video-item-title">
+                        <h4>{{video.titulo_video}}</h4>
+                        <span class="video-date">
+                            <i class="far fa-clock"></i>
+                            <strong>{{video.fecha_video}}</strong></span>
+                    </div>
+                </div>
+                <!--video-item end   -->
+                {% endfor %}
+            </div>
+            <!-- video-links-wrap end   -->
+        </div>
+    </div>
+    <div class="gray-bg ad-wrap fl-wrap">
+        <!--<div class="content-banner-wrap">
+            <img src="images/all/banner.jpg" class="respimg" alt="">
+        </div>-->
+    </div>
+    <!-- section Popular videos  -->
+    <!-- section Popular videos end -->
+</section>
+<!-- section end -->
+<!-- section -->
+<section class="no-padding">
+    <div class="fs-carousel-wrap">
+        <div class="fs-carousel-wrap_title">
+            <div class="fs-carousel-wrap_title-wrap fl-wrap">
+                <h4>Estemos conectados</h4>
+                <h5>Directorio de colaboradores</h5>
+            </div>
+            <div class="abs_bg"></div>
+            <div class="gs-controls">
+                <div class="gs_button gc-button-next"><i class="fas fa-caret-right"></i></div>
+                <div class="gs_button gc-button-prev"><i class="fas fa-caret-left"></i></div>
+            </div>
+        </div>
+        <div class="fs-carousel fl-wrap">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- swiper-slide-->
+                    {% for persona in personas %}
+                    <div class="swiper-slide">
+                        <div class="grid-post-item  bold_gpi  fl-wrap">
+                            <div class="grid-post-media gpm_sing">
+                                <div class="bg" data-bg="{{persona.fotografia_persona.url}}"></div>
+                                <div class="grid-post-media_title">
+                                    <a class="post-category-marker" href="category.html">{{persona.cargo}}</a>
+                                    <h4><a href="post-single.html">{{persona.nombre}} {{persona.apellido}}</a></h4>
+                                    <span class="video-date"><i class="far fa-envelope"></i>{{persona.correo}}               </span>
+                                    <span class="video-date"><i class="far fa-phone"></i>{{persona.telefono}}</span>
+                                    <span class="video-date"><i class="far fa-clock"></i> 02 March 2022</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- swiper-slide end-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section end -->
+<!-- section  -->
+<div class="gray-bg ad-wrap fl-wrap">
+    <!--<div class="content-banner-wrap">
+        <img src="images/all/banner.jpg" class="respimg" alt="">
+    </div>-->
+</div>
+<!-- section end -->
+{% endblock contenido %}

@@ -1,0 +1,48 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block titulo %}<title>Constructora del Mar</title>{% endblock titulo %}
+{% block contenido %}
+<!--section   -->
+{% for dato in datos %}
+<div class="breadcrumbs-header fl-wrap">
+    <div class="container">
+        <div class="breadcrumbs-header_url">
+            <a href="#">Somos</a>
+            <span>Mision</span>
+        </div>
+        <div class="scroll-down-wrap">
+            <div class="mousey">
+                <div class="scroller"></div>
+            </div>
+            <span>Desliza para descubrir</span>
+        </div>
+    </div>
+    <div class="pwh_bg"></div>
+</div>
+<!-- section end  -->
+<!--section   -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="section-title sect_dec">
+                    <h2>Misión</h2>
+                    <h4>Por qué existimos</h4>
+                </div>
+                <div class="about-wrap">
+                    <p>{{dato.mision}}</p>
+                    </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+                <div class="about-img fl-wrap">
+                    <img src="{% static 'images/somos/img_mision.jpeg' %}" class="respimg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sec-dec"></div>
+</section>
+<!--about end   -->
+{% endfor %}
+{% endblock contenido %}

@@ -1,0 +1,37 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block titulo%} Arquitectura {% endblock titulo%}
+{% block contenido %}
+<div class="breadcrumbs-header fl-wrap">
+    <div class="container">
+        <div class="breadcrumbs-header_url">
+            <a href="#">Logística</a>
+
+            <span>{{reportes.0}}</span>
+
+        </div>
+        <div class="scroll-down-wrap">
+            <div class="mousey">
+                <div class="scroller"></div>
+            </div>
+            <span>Desliza para descubrir</span>
+        </div>
+    </div>
+    <div class="pwh_bg"></div>
+</div>
+<!--<section>-->
+<div class="container">
+    <div class="main-container fl-wrap">
+    <div style="width: 100%;">
+        <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
+            {% for reporte in reportes %}
+            <iframe width="1024" height="720"
+                    src="{{reporte.url_reporte}}"
+                    frameborder="0" allowFullScreen="true"></iframe>
+            {% endfor%}
+        </div>
+    </div>
+</div>
+</div>
+<!--</section>-->
+{% endblock contenido %}

@@ -1,0 +1,147 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block titulo %}<title>¿Quienes somos?</title>{% endblock titulo %}
+{% block contenido %}
+<div class="breadcrumbs-header fl-wrap">
+    <div class="container">
+        <div class="breadcrumbs-header_url">
+            <a href="#">Somos</a><span>Nosotros
+        </span>
+        </div>
+        <div class="scroll-down-wrap">
+            <div class="mousey">
+                <div class="scroller"></div>
+            </div>
+            <span>Desliza para descubrir</span>
+        </div>
+    </div>
+    <div class="pwh_bg"></div>
+</div>
+<!--section   -->
+<section>
+    <div class="container">
+        <div class="breadcrumbs-header fl-wrap">
+            <div class="main-container fl-wrap fix-container-init">
+                <!-- single-post-media   -->
+                <div class="single-post-media fl-wrap">
+                    <a class="video-holder fl-wrap  image-popup" href="https://vimeo.com/850221903">
+                        <div class="bg" data-bg="{% static 'images/all/empresa.jpg' %}"></div>
+                        <div class="big_prom"><i class="fas fa-play"></i></div>
+                    </a>
+                </div>
+                <!-- single-post-media end   -->
+                <!-- single-post-content   -->
+                <div class="single-post-content  fl-wrap">
+                    <div class="fs-wrap smpar fl-wrap">
+                        <div class="fontSize"><span class="fs_title">Tamaño: </span><input type="text"
+                                                                                           class="rage-slider"
+                                                                                           data-step="1" data-min="15"
+                                                                                           data-max="19" value="15">
+                        </div>
+
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="single-post-content_text" id="font_chage">
+                        <div class="col-md-12">
+                            <p>Nuestra marca es sinónimo de experiencia, cercanía y profesionalismo, integrada por
+                                personas dinámicas y altamente motivadas. Un equipo multidisciplinario de vasta
+                                trayectoria donde mentes inquietas encuentran respuestas a las necesidades de clientes e
+                                inversionistas para construir relaciones de confianza.</p>
+
+                        </div>
+                    </div>
+                    {% for dato in datos %}
+                    <div class="grid-post-wrap gallery-items">
+                        <!--grid-post-item-->
+                        <section>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="section-title sect_dec">
+                                            <h2>Visión</h2>
+                                            <h4>Nuestro Norte</h4>
+                                        </div>
+                                        <div class="about-wrap">
+                                            <p>{{dato.vision}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                    <div class="list-post-media">
+                                        <a href="post-single.html">
+                                            <div class="bg-wrap">
+                                                <div class="bg"
+                                                     data-bg="{% static 'images/somos/img_vision_2.jpg' %}"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sec-dec"></div>
+                        </section>
+                        <section>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="section-title sect_dec">
+                                            <h2>Misión</h2>
+                                            <h4>Lo que hacemos</h4>
+                                        </div>
+                                        <div class="about-wrap">
+                                            <p>{{dato.mision}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                    <div class="list-post-media">
+                                        <a href="post-single.html">
+                                            <div class="bg-wrap">
+                                                <div class="bg"
+                                                     data-bg="{% static 'images/somos/img_mision.jpeg' %}"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sec-dec"></div>
+                        </section>
+                        <section>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="section-title sect_dec">
+                                            <h2>Propósito</h2>
+                                            <h4>Nuestra razón de ser</h4>
+                                        </div>
+                                        <div class="about-wrap">
+                                            <p>{{dato.proposito}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                    <div class="list-post-media">
+                                        <a href="post-single.html">
+                                            <div class="bg-wrap">
+                                                <div class="bg"
+                                                     data-bg="{% static 'images/somos/img_proposito.jpeg' %}"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sec-dec"></div>
+                        </section>
+                    </div>
+                    {% endfor %}
+                    <!-- single-post-nav"   -->
+                    <!-- single-post-nav"  end   -->
+                </div>
+                <!-- single-post-content  end   -->
+                <div class="limit-box2 fl-wrap"></div>
+                <!-- post-author-->
+                <!--post-author end-->
+                <!--comments end -->
+            </div>
+        </div>
+        <div class="limit-box fl-wrap"></div>
+    </div>
+</section>
+
+{% endblock contenido %}

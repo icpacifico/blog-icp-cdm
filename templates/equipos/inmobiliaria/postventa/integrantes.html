@@ -1,0 +1,72 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block titulo%} Arquitectura {% endblock titulo%}
+{% block contenido %}
+<div class="breadcrumbs-header fl-wrap">
+    <div class="container">
+        <div class="breadcrumbs-header_url">
+            <a href="#">Empresas</a>
+            <span>Arquitectura</span>
+        </div>
+        <div class="scroll-down-wrap">
+            <div class="mousey">
+                <div class="scroller"></div>
+            </div>
+            <span>Desliza par descrubir</span>
+        </div>
+    </div>
+    <div class="pwh_bg"></div>
+</div>
+<!--section   -->
+<section>
+    <div class="container">
+        <div class="main-container fl-wrap">
+            <div class="section-title">
+                <h2>Equipo de PostVenta</h2>
+                <h4>Somos los mejores en PostVenta!</h4>
+
+            </div>
+            <!--grid-post-wrap-->
+            <div class="grid-post-wrap gallery-items">
+                <!--grid-post-item-->
+                {% for persona in personas %}
+                <div class="gallery-item">
+                    <div class="grid-post-item  bold_gpi  fl-wrap">
+                        <div class="grid-post-media">
+                            <!--{{persona.otografia_persona.url}}-->
+                            <img src="{{ persona.fotografia_persona.url }}" class="respimg" alt="">
+                        </div>
+                        <div class="grid-post-content">
+                            <h3><a href="post-single.html">{{persona.nombre}} {{persona.apellido}}</a></h3>
+                            <span class="post-date"><i class="far fa-clock"></i>{{persona.cargo}}</span>
+                            <p>{{persona.resegna}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!--grid-post-wrap end-->
+            <div class="clearfix"></div>
+            <div class="load-more_btn"><i class="fal fa-undo"></i>Load More</div>
+            <!--pagination-->
+            <div class="pagination">
+                <a href="#" class="prevposts-link"><i class="fas fa-caret-left"></i></a>
+                <a href="#">01.</a>
+                <a href="#" class="current-page">02.</a>
+                <a href="#">03.</a>
+                <a href="#">04.</a>
+                <a href="#" class="nextposts-link"><i class="fas fa-caret-right"></i></a>
+            </div>
+            <!--pagination end-->
+        </div>
+    </div>
+</section>
+<!-- section end -->
+<!-- section  -->
+<div class="gray-bg ad-wrap fl-wrap">
+    <div class="content-banner-wrap">
+        <img src="images/all/banner.jpg" class="respimg" alt="">
+    </div>
+</div>
+<!-- section end -->
+{% endblock contenido %}
